@@ -1,0 +1,953 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden] {
+  display: none;
+}
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+h1 {
+  font-size: 2em;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: 700;
+}
+dfn {
+  font-style: italic;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+q {
+  quotes: \201c \201d \2018 \2019;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+button,
+input {
+  line-height: normal;
+}
+button,html input[type=button],/* 1 */input[type=reset],input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body,
+figure {
+  margin: 0;
+}
+legend,
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* wild card selectors to get rid of the anti=aliasing rendering issues with certain broswers. Unfornately it doesn't fix the issue on my broswer - using a 13inch Mac and FireFox */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  /* set default font size to 20px */
+  font-size: 125%;
+}
+
+/* FONTS
+font-family: 'Fredericka the Great', cursive;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Roboto', sans-serif; */
+
+/* COLORS
+#white #fcfcfc rgb(252, 252, 252) 
+#light-green #c3d3cb rgb(195, 211, 203)
+#dark-green #152d20 rgb(21, 45, 32) */
+
+/* GENERAL STYLING */
+/* copied from bootcamp notes on forms */
+.visuallyhidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* copied from bootcamp notes on navigation */
+.skipLink {
+  position: absolute;
+  left: -1000px;
+  top: 5px;
+  z-index: 999;
+  background: #fcfcfc;
+  color: #152d20;
+}
+
+.skipLink:focus {
+  left: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+  /* 1600px - (160px * 2) */
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* TYPOGRAPHY */
+.heading {
+  font-family: "Fredericka the Great", cursive;
+  text-transform: uppercase;
+}
+
+h1 {
+  /* 120px / 20px */
+  font-size: 6rem;
+  color: #fcfcfc;
+  width: 50%;
+  /* font style values are taken from the psd design details showing on Zeplin */
+  text-align: right;
+  line-height: 0.98;
+  float: right;
+  /* according to this post https://www.hongkiat.com/blog/calculate-css-percentage-margins/ I am calcualting my margin based on the width of their parent container. I choose to use % here to save more time as I am styling major strucal elemetns here. 88px/ 1600px*/
+  margin-top: 5.5%;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.paragraph {
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.button {
+  font-family: 'Cormorant Garamond', serif;
+  /* 18px / 20px  */
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.61;
+  text-align: center;
+  /* the size of the button is 160px by 50px */
+  padding: 16px 28.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* HEADER STYLING */
+
+header {
+  background-image: url(../assets/heroImg.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  margin: 0;
+  height: 100vh;
+}
+
+.mobileNav {
+  display: none;
+}
+
+/* 24px is the measurement between the nav and the top of the header in the original design file. Because the value is quite small, I choose to use px value here in the Desktop design.  */
+header nav {
+  padding-top: 24px;
+}
+
+header nav a {
+  float: left;
+  /* 24px / 20px - using rem here as I do want the margin between <li>s to reflect the default user setting */
+  margin-right: 1.2rem;
+}
+
+header a {
+  /* 22px / 20px */
+  font-size: 1.1rem;
+  /* I am using the white color included in the style guide as per discussion with Fatima */
+  color: #fcfcfc;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.socialMedia {
+  clear: both;
+  float: right;
+  /* 49px / 1600px */
+  margin-right: 3%;
+  /* 224px / 1600px*/
+  margin-top: 14%;
+}
+
+.socialMedia li {
+  text-align: center;
+}
+
+.socialMedia li:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+/* FEATURED STORY SECTION STYLING */
+.featuredStory {
+  background: #152d20;
+  color: #fcfcfc;
+  /* 109px / 1280px  */
+  padding: 8.5% 0;
+}
+
+.featuredStory h2 {
+  /* 51px / 20px */
+  font-size: 2.55rem;
+  line-height: 51px;
+}
+
+.storyImageContainer {
+  /* 315px / 1280px */
+  width: 24.6%;
+  float: left;
+  margin-right: 39px;
+}
+
+.featuredStory img {
+  width: 100%;
+}
+
+.storyTextContainer {
+  width: calc(75.4% - 39px);
+  float: right; 
+}
+
+.storyTextContainer p {  
+  margin: 18px 0 32px 0;
+}
+
+.buttonStyle1 {
+  color: #152d20;
+  background: #fcfcfc;
+}
+
+/* GALLERY SECTION STYLING */
+
+.gallery {
+  background: #c3d3cb;
+  /* top: 98px/ 1280px  bottom:109px / 1280px */
+  padding: 7.65% 0 8.5% 0;
+}
+
+.gallery h2 {
+  color: #152d20;
+  /* 49px / 20px */
+  font-size: 2.45rem;
+  text-align: center;
+  /* (1280px - 481px) / 2 = 399.5px 399.5px/1280px  */
+  margin: 0 31%;
+  /* 481px / 1280px */
+  width: 37.5%;
+}
+
+.galleryContainer {
+  /* 93px / 1280px  */
+  margin-top: 7.25%;
+}
+
+.galleryItem:not(:last-child) {
+  margin-right: 40px;
+}
+
+.galleryItem{
+  float: left;
+  width: calc((100% - 80px) / 3);
+}
+
+.galleryItem img {
+  width: 100%;
+}
+
+/* MENU ICON SECTION STYLING */
+.menuIconBar {
+  background: #152d20;
+  /* top: 88px / 1280px bottom: 51.3px / 1280px */
+  padding: 6.5% 0 4% 0;
+}
+
+.menuContainer {
+  /* (310px - 160px) / 1280px */
+  margin: 0 11.7%;
+}
+
+.menuItem {
+  width: calc((100% - 14.6% * 2) / 3);
+  float: left;
+  text-align: center; 
+}
+
+.menuItem:not(:last-child) {
+  /* 187px / 1280px */
+  margin-right: 14.6%;
+}
+
+.menuItem a {
+  color: #fcfcfc;
+  font-family: 'Cormorant Garamond', serif;
+  /* 39px / 20px */
+  font-size: 1.95rem;
+  font-weight: 600;
+}
+
+.menuItem p {
+  margin: 25px 0 0 0;
+}
+
+.menuItem:first-of-type p{
+  margin-top: 14px;
+}
+
+.menuItem i {
+  /* 60px / 20px */
+  font-size: 3rem;
+}
+
+/* BLOG POST SECTION STYLING */
+
+.blogPost img {
+  object-fit: cover; 
+  width: 100%;
+}
+
+.blogPost:first-of-type .blogPostImageBox, 
+.blogPost:first-of-type .blogPostTextBox{
+  float: right; 
+  width: 50%;
+}
+
+.blogPost:last-of-type .blogPostImageBox, 
+.blogPost:last-of-type .blogPostTextBox {
+  float: left; 
+  width: 50%;
+}
+
+/* I learnt this from reading Jon's blog https://medium.com/@JonWongCodes/vertical-centering-old-school-edition-5964d0050b62 */
+
+.blogPostTextBox {
+  display: table;
+  /* 600px / 1280px  */
+  height: 37vw;
+}
+
+.blogPostTextContent {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.blogPostTextBox:first-of-type {
+  /* top: 126px / 1600px left: 160px / 1600px  right: 95px / 1600px */
+  padding: 0 6% 0 10%;
+}
+
+.blogPostTextBox:last-of-type {
+  /* top: 126px / 1600px right: 160px / 1600px  left: 95px / 1600px */
+  padding: 0 10% 0 6%;
+}
+
+.blogPost h2 {
+  color: #152d20;
+  /* 35px / 20px  */
+  font-size: 1.75rem;
+}
+
+.blogPostTextBox p {
+  margin-bottom: 24px;
+}
+
+.buttonStyle2 {
+  color: #fcfcfc;
+  background: #152d20;
+  display: inline-block;
+}
+
+/* FOOTER STYLING */
+
+footer{
+  background: #152d20;
+}
+
+footer a, footer h2, footer p {
+  color: #fcfcfc;
+  margin: 0;
+  padding: 0;
+}
+
+footer a, footer h2 {
+  font-family: 'Cormorant Garamond', serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+footer h2 {
+  /* 25px / 20px */
+  font-size: 1.25rem;
+}
+
+footer p {
+  line-height: 1.45;
+  margin-bottom: 11px;
+  font-weight: 300;
+}
+
+.footerTop {
+  /* top: 98px / 1280px  bottom: 109px /1280px*/
+  padding: 7.6% 0 8.5% 0;
+}
+
+footer nav {
+  float: left;
+  /* 214px / 1280px  */
+  width: 16.7%;
+  line-height: 1.45;
+}
+
+footer form {
+  float: left;
+  /* 640px / 1280px */
+  width: 50%;
+}
+
+form h2, form p {
+  text-align: center;
+}
+
+input[type="email"] {
+  padding: 10px 38px 10px 33px;
+  /* 480px / 640px */
+  width: 75%;
+  float: left;
+  outline: none;
+}
+
+.buttonStyle3 {
+  color: #fcfcfc;
+  background: #000;
+  border: none;
+  font-size: 1rem;
+  line-height: 20px;
+  text-align: center;
+  padding: 3% 2%;
+  float: left;
+  width: 25%;
+  margin: 0;
+}
+
+.contact {
+  text-align: right;
+}
+
+.contact h2 {
+  margin-bottom: 13px;
+}
+
+.contact p span {
+  width: 100%;
+  display: block;
+}
+
+.copyright {
+  background: #000;
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.61;
+  padding: 10px 0;
+  margin-bottom: 0;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1570px) {
+
+  .socialMedia {
+    margin-top: 16%;
+  }
+
+  .storyImageContainer {
+    width: 30%;
+  }
+
+  .storyTextContainer {
+    width: calc(70% - 39px);
+  }
+
+  .menuItem a {
+    /* 32px / 20px */
+    font-size: 1.6rem;
+  }
+
+  .blogPost .blogPostTextBox {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  h1 {
+    width: 60%;
+  }
+
+  .socialMedia {
+    margin-top: 18%;
+  }
+  
+  .storyImageContainer {
+    width: 40%;
+  }
+
+  .storyTextContainer {
+    width: calc(60% - 39px);
+  }
+
+  .gallery h2 {
+    margin: 0 25%;
+    width: 50%;
+  }
+
+  .blogPost .blogPostTextBox {
+    padding: 4%;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  body {
+    font-size: 95%;
+  }
+  
+  .wrapper {
+    width: 85%;
+  }
+
+  h1 {
+    margin-right: 3%;
+  }
+
+  .socialMedia {
+    margin-top: 20%;
+  }
+
+  .storyImageContainer {
+    width: calc(50% - 39px);
+  }
+
+  .storyTextContainer {
+    width: 50%;;
+  }
+
+  .menuItem a {
+    /* 30px / 20px */
+    font-size: 1.5rem;
+  }
+
+  .blogPost .blogPostTextBox {
+    padding: 3%;
+  }
+
+  input[type="email"] {
+    width: 60%;
+  }
+
+  button[type="submit"] {
+    width: 40%;
+  }
+
+}
+
+@media (max-width: 1110px) {
+  h1 {
+    font-size: 5rem;
+  }
+
+  .socialMedia {
+    margin-top: 24%;
+  }
+
+  .blogPost .blogPostTextBox {
+    padding: 2%;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  /* HEADER STYLING */
+
+  header {
+    height: 67vh;
+    background-position: 35% bottom;
+  }
+
+  .mobileNav {
+   display: block;
+   float: right;
+   padding-top: 3%;
+  }
+
+  .socialMedia,
+  header nav {
+    display: none;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    width: 25%;
+    float: none;
+    margin: 0;
+    padding-top: 3%;
+    text-align: left;
+  }
+
+  /* STORY SECTION STYLING */
+  .featuredStory h2,
+  .gallery h2 {
+    /* 38px / 20px */
+    font-size: 1.9rem;
+  }
+  
+  .storyImageContainer,
+  .storyTextContainer {
+    width: 100%;
+  }
+
+  .featuredStory {
+    /* 51px / 400px*/
+    padding-bottom: 12.75%;
+  }
+
+  .featuredStory .storyImageContainer img {
+    /* 264px / 400px */
+    height: 66vw;
+    object-fit: cover;
+  }
+
+  .storyTextContainer {
+    /* 51px / 400px */
+    margin-top: 12.75%;
+  }
+
+  .buttonContainer {
+    text-align: center;
+  }
+
+  .storyTextContainer .button {
+    display: inline-block;
+  }
+
+  /* GALLERY SECTION STLYING */
+  .gallery {
+    background: #fcfcfc;
+    margin-bottom: 12.75%;
+    padding: 0;
+  }
+
+  .galleryItem:not(:last-child) {
+    /* 9px / 400px */
+    margin-right: 2.25%;
+    margin-bottom: 0;
+    width: calc(50% - 2.25%);
+  }
+
+  .galleryItem:last-child {
+    display: none;
+  }
+
+  .gallery h2 {
+    /* top: 40px / 400px left: 62px / 400px */
+    margin: 10% 20%;
+    /* 283px / 400px */
+    width: 55%;
+  }
+
+  /* MENU ICON SECTION STYLING */
+  
+  .menuIconBar {
+    padding: 12.75% 0;
+  }
+
+  .menuItem {
+    width: 100%;
+  }
+
+  .menuItem:not(:last-child) {
+    /* 33px / 400px */
+    margin-bottom: 8.25%;
+  }
+  .menuItem a {
+    /* 30px / 20px */
+    font-size: 1.5rem;
+  }
+
+  /* BLOGPOST SECTOIN STYLING */
+
+  .blogPosts .blogPost .blogPostImageBox,
+  .blogPosts .blogPost .blogPostTextBox {
+    clear: both;
+    width: 100%;
+  }
+
+  .blogPostTextBox {
+    margin: 9% auto;
+  }
+
+  .blogPostImageBox img {
+    object-fit: cover;
+    height: 50vw;
+  }
+
+  .blogPostTextBox {
+    text-align: center;
+  }
+
+  .blogPostTextBox h2 {
+    /* 36px / 400px */
+    padding: 0 10%;
+  }
+
+  .blogPostTextBox p {
+    /* 20px / 400px */
+    margin: 7px 5% 10% 5%; 
+  }
+
+  /* FOOTER SECTION STYLYING */
+
+  .footerTop {
+    padding: 10% 0; 
+  }
+
+  footer nav, 
+  footer form,
+  input[type="email"],
+  button[type="submit"], 
+  footer .contact {
+    width: 100%;
+    clear: both;
+    text-align: center;
+  }
+
+  footer nav li {
+    float: left;
+    width: 25%;
+  }
+
+  footer h2 {
+    margin: 5% auto 2% auto;
+  }
+
+  input[type="email"],
+  button[type="submit"] {
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 900px) {
+  
+  body {
+    /* 18px / 20px */
+    font-size: 90%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .wrapper {
+    width: 90%;
+  }
+  
+}
+
+@media (max-width: 600px) {
+
+  .wrapper {
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .mobileNav {
+    padding-right: 3%;
+  }
+
+  .gallery h2 {
+    width: 100%;
+    margin: 10% 0;
+  }
+
+  
+
+  footer form p {
+    /* 16px / 20px */
+    font-size: .8rem;
+  }
+
+  .contact p,  .copyright {
+    /* 14px / 20px */
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .mobileNav {
+    padding-right: 10%;
+  }
+  .blogPostTextBox h2 {
+    padding: 0 5%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
