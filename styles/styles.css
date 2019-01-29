@@ -182,7 +182,7 @@ font-family: 'Roboto', sans-serif; */
 
 /* GENERAL STYLING */
 /* copied from bootcamp notes on forms */
-.visuallyhidden:not(:focus):not(:active) {
+.visuallyHidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -225,6 +225,10 @@ a {
   text-transform: uppercase;
 }
 
+a:hover {
+  color: peru;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -232,6 +236,7 @@ ul {
 }
 
 /* TYPOGRAPHY */
+
 .heading {
   font-family: "Fredericka the Great", cursive;
   text-transform: uppercase;
@@ -273,6 +278,12 @@ h2 {
   padding: 16px 28.5px;
   text-transform: uppercase;
   margin: 0;
+  transition: all .2s;
+}
+
+.buttonStyle1:hover {
+  background: peru;
+  color: #fcfcfc;
 }
 
 /* HEADER STYLING */
@@ -314,7 +325,7 @@ header a {
   /* 49px / 1600px */
   margin-right: 3%;
   /* 224px / 1600px*/
-  margin-top: 14%;
+  margin-top: 12%;
 }
 
 .socialMedia li {
@@ -413,6 +424,11 @@ header a {
   margin: 0 11.7%;
 }
 
+.menuItem i:hover,
+.menuItem p:hover {
+  color: peru;
+}
+
 .menuItem {
   width: calc((100% - 14.6% * 2) / 3);
   float: left;
@@ -503,6 +519,11 @@ header a {
   display: inline-block;
 }
 
+.buttonStyle2:hover {
+  background: peru;
+  color: #fcfcfc;
+}
+
 /* FOOTER STYLING */
 
 footer{
@@ -550,7 +571,8 @@ footer form {
   width: 50%;
 }
 
-form h2, form p {
+form h2, 
+form p {
   text-align: center;
 }
 
@@ -600,10 +622,6 @@ input[type="email"] {
 
 /* MEDIA QUERIES */
 @media (max-width: 1570px) {
-
-  .socialMedia {
-    margin-top: 16%;
-  }
 
   .storyImageContainer {
     width: 30%;
@@ -924,7 +942,8 @@ input[type="email"] {
     font-size: .8rem;
   }
 
-  .contact p,  .copyright {
+  .contact p,  
+  .copyright {
     /* 14px / 20px */
     font-size: .7rem;
   }
